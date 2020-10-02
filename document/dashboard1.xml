@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Visible="false" Text="Sample Dashboard" IncludeMasterFilterState="false" />
+  <DataSources>
+    <ExcelDataSource Name="Excel Data Source 1" FileName="|DataDirectory|\inputDashboard.xlsx" ComponentName="dashboardExcelDataSource1">
+      <Options Type="DevExpress.DataAccess.Excel.ExcelSourceOptions" SkipEmptyRows="true" UseFirstRowAsHeader="true" SkipHiddenColumns="true" SkipHiddenRows="true">
+        <ImportSettings Type="DevExpress.DataAccess.Excel.ExcelWorksheetSettings" WorksheetName="Sheet1" />
+      </Options>
+      <Schema />
+      <ResultSchema>
+        <View>
+          <Field Name="مقدار" Type="Double" />
+          <Field Name="تاریخ" Type="String" />
+        </View>
+      </ResultSchema>
+    </ExcelDataSource>
+    <ExcelDataSource Name="Excel Data Source 2" FileName="C:\Users\Kiolin\Desktop\inputDashboard.xlsx" ComponentName="dashboardExcelDataSource2">
+      <Options Type="DevExpress.DataAccess.Excel.ExcelSourceOptions" SkipEmptyRows="true" UseFirstRowAsHeader="true" SkipHiddenColumns="true" SkipHiddenRows="true">
+        <ImportSettings Type="DevExpress.DataAccess.Excel.ExcelWorksheetSettings" WorksheetName="Sheet1" />
+      </Options>
+      <Schema />
+      <ResultSchema>
+        <View>
+          <Field Name="مقدار" Type="Double" />
+          <Field Name="تاریخ" Type="String" />
+        </View>
+      </ResultSchema>
+    </ExcelDataSource>
+    <ExcelDataSource Name="Excel Data Source 3" FileName="C:\Users\Kiolin\Desktop\inputDashboard.xlsx" ComponentName="dashboardExcelDataSource3">
+      <Options Type="DevExpress.DataAccess.Excel.ExcelSourceOptions" SkipEmptyRows="true" UseFirstRowAsHeader="true" SkipHiddenColumns="true" SkipHiddenRows="true">
+        <ImportSettings Type="DevExpress.DataAccess.Excel.ExcelWorksheetSettings" WorksheetName="Sheet1" />
+      </Options>
+      <Schema />
+      <ResultSchema>
+        <View>
+          <Field Name="مقدار" Type="Double" />
+          <Field Name="تاریخ" Type="String" />
+        </View>
+      </ResultSchema>
+    </ExcelDataSource>
+    <ExcelDataSource Name="Excel Data Source 4" FileName="C:\Users\Kiolin\Desktop\inputDashboard.xlsx" ComponentName="dashboardExcelDataSource4">
+      <Options Type="DevExpress.DataAccess.Excel.ExcelSourceOptions" SkipEmptyRows="true" UseFirstRowAsHeader="true" SkipHiddenColumns="true" SkipHiddenRows="true">
+        <ImportSettings Type="DevExpress.DataAccess.Excel.ExcelWorksheetSettings" WorksheetName="Sheet1" />
+      </Options>
+      <Schema />
+      <ResultSchema>
+        <View>
+          <Field Name="مقدار" Type="Double" />
+          <Field Name="تاریخ" Type="String" />
+        </View>
+      </ResultSchema>
+    </ExcelDataSource>
+  </DataSources>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="" ShowCaption="false" DataSource="dashboardExcelDataSource1">
+      <DataItems>
+        <Dimension DataMember="تاریخ" SortOrder="Descending" DefaultId="DataItem0" />
+        <Measure DataMember="مقدار" Name="سود/زیان (تومان)" SummaryType="Mode" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Precision="0" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple Name="سود/زیان" ShowPointMarkers="true" SeriesType="Line">
+              <Value DefaultId="DataItem1" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutItem DashboardItem="chartDashboardItem1" Weight="100" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>
