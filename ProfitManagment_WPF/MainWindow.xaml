@@ -1,0 +1,42 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProfitManagment_WPF"
+        xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" x:Class="ProfitManagment_WPF.MainWindow"
+        mc:Ignorable="d"
+        Title="مدیریت سود/زیان پرتفوی" Height="450" Width="800" FlowDirection="RightToLeft">
+    <Window.Resources>
+        <DataTemplate x:Key="HamburgerMenuItemTemplate">
+            <dxwui:HamburgerMenuNavigationButton Content="{Binding Header}" NavigationTargetType="{Binding Type}" IsSelected="{Binding IsSelected}" Glyph="{Binding Glygh}" Background="{Binding Background}" Foreground="{Binding Foreground}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="HamburgerMenuBottomBarItemTemplate">
+            <dxwui:HamburgerMenuBottomBarCheckBox Content="{Binding Header}" GlyphWidth="16" Glyph="{dx:DXImage Office2013/Setup/Properties_16x16.png}" GlyphHeight="16" IsChecked="{Binding IsSelected}" />
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <dxwui:HamburgerMenu IsMenuVisible="True" 
+                             ItemsSource="{Binding MenuItems}"
+                             SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                             ItemTemplate="{StaticResource HamburgerMenuItemTemplate}"
+                             BottomBarItemsSource="{Binding BottomBarMenuItems}"
+                             BottomBarItemTemplate="{StaticResource HamburgerMenuBottomBarItemTemplate}"                             
+                             AllowBuiltInNavigation="True"
+                             ShowMenuOnEmptySpaceBarClick="True"
+                             IsInitiallyCompact="False"
+                             AvailableViewStates="All"
+                             ViewState="Inline"
+                             IsWindowBackButtonVisible="True" PaneBackground="#FF004258">
+
+            <dxwui:HamburgerMenu.Content>
+                <dxwui:NavigationFrame AnimationType="None"
+                                       NavigationCacheMode="Required" />
+                <!--prism:RegionManager.RegionName="{x:Static constants:RegionNames.ContentRegion}"-->
+            </dxwui:HamburgerMenu.Content>
+
+        </dxwui:HamburgerMenu>
+
+    </Grid>
+</Window>
